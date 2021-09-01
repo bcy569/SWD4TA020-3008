@@ -1,0 +1,1 @@
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.5.4&packaging=jar&jvmVersion=11&groupId=fi.legall.mika.bcy569&artifactId=thymelaf-hello&name=thymelaf-hello&description=SWD4TA020-3008&packageName=fi.legall.mika.bcy569.thymelaf-hello&dependencies=devtools,web,thymeleaf

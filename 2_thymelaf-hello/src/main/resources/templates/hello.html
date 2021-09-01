@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Server Programming</title>
+</head>
+<body>
+
+<div th:if="${age} != null">
+<div th:if="${age} &lt; 18">
+<p>You are too young!</p>
+</div>
+</div>
+
+<div th:if="${age} != null">
+<div th:if="${age} &gt; 17">
+<h1 th:text="'Welcome ' + ${name}"></h1>
+</div>
+</div>
+
+<p>
+<div th:if="${age} == null">
+<div th:if="${name} == null">
+Welcome to the Haaga-Helia!
+	<table>
+		<tbody>
+			<tr th:each="student : ${students}">
+			<td th:text="${student.firstName}"></td>
+			<td th:text="${student.lastName}"></td>
+		</tbody>
+	</table>
+</div>
+</div>
+</p>
+</body>
+</html>
