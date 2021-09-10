@@ -2,13 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
 <title>Server Programming</title>
 </head>
 <body>
 	<p>
 	<h1>Books</h1>
 	<div th:if="${books} != null">
-		<table>
+		<table class="table table-striped">
 			<tbody>
 				<tr>
 					<td><b>Author</b></td>
@@ -27,7 +28,8 @@
 			</tbody>
 		</table>
 	</div>
-	<a href="/addbook">Add Book</a>  
+	
+	<a href="/addbook"><button type="button" class="btn btn-success">Add Book</button></a>  
 	</p>
 
 </body>
