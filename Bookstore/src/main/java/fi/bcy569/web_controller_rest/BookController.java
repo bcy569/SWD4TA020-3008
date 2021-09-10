@@ -18,8 +18,8 @@ public class BookController {
 	@Autowired
 	private IBookRepository bookRepository;
 	
-	@RequestMapping("index")
-	@ResponseBody
+	@RequestMapping("booklist")
+	//@ResponseBody
 	public String getIndex(@RequestParam(name="title", required=false) String title,
 			@RequestParam(name="auihor", required=false) String auihor,
 			@RequestParam(name="year", required=false) String year,
@@ -28,11 +28,9 @@ public class BookController {
 			Model model)
 	{
 		
-//		model.addAttribute("books", books);
+		model.addAttribute("books", bookRepository.findAll());
 		
-		List<Book> books = bookRepository.findByTitle("Eemelin seikkailut");
-		
-		return books.toString();
+		return "booklist";
 		
 	}
 	

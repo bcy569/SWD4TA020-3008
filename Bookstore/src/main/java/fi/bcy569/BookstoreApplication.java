@@ -27,10 +27,22 @@ public class BookstoreApplication {
 			Book kirja2 = new Book();
 			Book kirja3 = new Book();
 
+			kirja1.setAuthor("Kirjailija1");
+			kirja2.setAuthor("Kirjailija2");
+			kirja3.setAuthor("Kirjailija3");
+			
 			kirja1.setTitle("Otsikko1");
 			kirja2.setTitle("Otsikko2");
 			kirja3.setTitle("Otsikko3");
 
+			kirja1.setIsbn("ISBN1");
+			kirja2.setIsbn("ISBN2");
+			kirja3.setIsbn("ISBN3");
+
+			kirja1.setYear(1901);
+			kirja2.setYear(1902);
+			kirja3.setYear(1903);
+			
 			bookRepository.save(kirja1);
 			bookRepository.save(kirja2);
 			bookRepository.save(kirja3);
