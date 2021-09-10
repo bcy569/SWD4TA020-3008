@@ -7,7 +7,7 @@ Windows GitBash
     git config user.email "bcy569@myy.haaga-helia.fi"
     git config user.name "bcy569"
     git commit -m"init"
-    git remote add origin https://github.com/bcy569/SWD4TA020-3008.git
+    git remote add origin git@github.com:bcy569/SWD4TA020-3008.git
 
 
     ssh-keygen -t ed25519 -C "bcy569@myy.haaga-helia.fi"
