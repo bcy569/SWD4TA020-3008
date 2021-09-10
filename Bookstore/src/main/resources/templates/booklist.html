@@ -16,12 +16,14 @@
 					<td><b>Title</b></td>
 					<td><b>ISBN</b></td>
 					<td><b>Year</b></td>
+					<td><b>Category</b></td>
 				</tr>
 				<tr th:each="book : ${books}">
 					<td th:text="${book.author}"></td>
 					<td th:text="${book.title}"></td>
 					<td th:text="${book.isbn}"></td>
 					<td th:text="${book.year}"></td>
+					<td th:text="${book.category.name}"></td>					
 					<td><a th:href="@{/delete/{id}(id=${book.id})}"><button type="button" class="btn btn-danger">Delete</button></a></td>
 					<td><a th:href="@{/edit/{id}(id=${book.id})}">Edit</a></td>
 				</tr>

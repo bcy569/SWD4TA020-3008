@@ -6,7 +6,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import fi.bcy569.domain_class_pojo_orm.Book;
+import fi.bcy569.domain_class_pojo_orm.Category;
 import fi.bcy569.domain_class_pojo_orm.interfaces.IBookRepository;
+import fi.bcy569.domain_class_pojo_orm.interfaces.ICategoryRepository;
 
 @SpringBootApplication
 public class BookstoreApplication {
@@ -19,10 +21,21 @@ public class BookstoreApplication {
 	// Alustukseen liittyviä toimia kuten malliksi tietokantaan olioiden
 	// tallentamista
 	@Bean
-	public CommandLineRunner demo(IBookRepository bookRepository) {
+	public CommandLineRunner demo(IBookRepository bookRepository, ICategoryRepository categoryRepository) {
 		return (args) -> {
 
-//		Book kirja1 = new Book("Eemelin seikkailut", "Kirjailijan Nimi 1", "ISBN 123", 1900, 40);
+			Category kategoria1 = new Category();
+			Category kategoria2 = new Category();
+			Category kategoria3 = new Category();
+			
+			kategoria1.setName("Atk");
+			kategoria2.setName("It");
+			kategoria3.setName("Ict");
+
+			categoryRepository.save(kategoria1);
+			categoryRepository.save(kategoria2);
+			categoryRepository.save(kategoria3);
+
 			Book kirja1 = new Book();
 			Book kirja2 = new Book();
 			Book kirja3 = new Book();
@@ -43,10 +56,14 @@ public class BookstoreApplication {
 			kirja2.setYear(1902);
 			kirja3.setYear(1903);
 			
+			kirja1.setCategory(kategoria1);
+			kirja2.setCategory(kategoria2);
+			kirja3.setCategory(kategoria3);
+			
 			bookRepository.save(kirja1);
 			bookRepository.save(kirja2);
 			bookRepository.save(kirja3);
-
+			
 		};
 	}
 

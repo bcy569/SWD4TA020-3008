@@ -11,18 +11,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import fi.bcy569.domain_class_pojo_orm.Book;
 import fi.bcy569.domain_class_pojo_orm.interfaces.IBookRepository;
+import fi.bcy569.domain_class_pojo_orm.interfaces.ICategoryRepository;
 
 @Controller
 public class BookController {
 
 	@Autowired
 	private IBookRepository bookRepository;
+	
+	@Autowired
+	private ICategoryRepository categoryRepository;
 
 	@RequestMapping("booklist")
 	public String getBookList(Model model) {
 
 		model.addAttribute("books", bookRepository.findAll());
-
+		model.addAttribute("categories", categoryRepository.findAll());
+		
 		return "booklist";
 
 	}
@@ -31,6 +36,7 @@ public class BookController {
 	public String getAddBook(Model model) {
 
 		model.addAttribute("book", new Book());
+		model.addAttribute("categories", categoryRepository.findAll());
 
 		return "addbook";
 
@@ -67,6 +73,7 @@ public class BookController {
 	public String editBookById(@PathVariable("id") Long id, Model model) {
 
 		model.addAttribute("book", bookRepository.findById(id));
+		model.addAttribute("categories", categoryRepository.findAll());
 		return "editbook";
 
 	}
