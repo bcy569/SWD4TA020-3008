@@ -1,7 +1,6 @@
 package fi.bcy569.domain_class_pojo_orm;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,7 +14,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import lombok.Data;
 
 @Entity // ORM map into DB table
-@Table(name = "BOOKS") //@Table(name = "BOOKS", schema = "PUBLIC")
+@Table
 @Data // Lombok for constructors, getters and setters
 public class Book {
 	

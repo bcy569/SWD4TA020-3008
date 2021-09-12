@@ -13,10 +13,12 @@ import javax.persistence.Table;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Entity // ORM map into DB table
-@Table(name = "CATEGORYS") //@Table(name = "BOOKS", schema = "PUBLIC")
+@Table
 @Data // Lombok for constructors, getters and setters
 public class Category {
 
@@ -27,6 +29,7 @@ public class Category {
 
 	private String name;
 	
+	@JsonIgnore // Otherwise it will be endless looping with linked mapping
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
 	private List<Book> books;
 	
