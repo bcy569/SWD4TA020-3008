@@ -26,9 +26,7 @@ Create Java [SpringBoot](https://start.spring.io/ "Spring.io") BackEnd objects a
 BackEnd Swagger for human FrontEnd developers
 <br>
 http://localhost:8080/swagger-ui/
-<br>
 * machine readable version for Swagger Code Generator
-<br>
 http://localhost:8080/v2/api-docs?group=backbone-api
 
 BackEnd HealthCheck (Ops: <b>Note</b>, endpoint e.g. for Docker)
@@ -38,4 +36,4 @@ http://localhost:8080/actuator/health/
 
 Docker + Kubernetes
 
-Linode / Digital Ocean / AWS / Azure / Google Cloud / Oracle Cloud
+Linode / Digital Ocean / <b>AWS</b> / Azure / Google Cloud / Oracle Cloud / AliBaba Cloud
