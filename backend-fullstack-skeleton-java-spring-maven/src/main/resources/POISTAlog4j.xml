@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration PUBLIC
+  "-//APACHE//DTD LOG4J 1.2//EN" "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration
+	xmlns:log4j="http://jakarta.apache.org/log4j/" debug="false">
+	<appender name="VACCINATIONDATABASE"
+		class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="C:/logs/vaccinationdatabase.log" />
+		<param name="MaxFileSize" value="15000KB" />
+		<param name="MaxBackupIndex" value="3" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH\:mm\:ss}| %-5p| %-15c{1}| %m%n" />
+		</layout>
+	</appender>
+	<appender name="HIBERNATE"
+		class="org.apache.log4j.RollingFileAppender">
+		<param name="File"
+			value="C:/logs/hibernate_vaccinationdatabase.log" />
+		<param name="MaxFileSize" value="15000KB" />
+		<param name="MaxBackupIndex" value="3" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH\:mm\:ss}| %-5p| %-15c{1}| %m%n" />
+		</layout>
+	</appender>
+	<appender name="CONSOLE"
+		class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d{yyyy-MM-dd HH\:mm\:ss}| %-5p|%-15c{1}| %m%n" />
+		</layout>
+	</appender>
+
+	<category name="fi.dev.academy.vaccinationdatabase" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="VACCINATIONDATABASE" />
+	</category>
+	<category name="org.hibernate.SQL" additivity="false">
+		<level value="trace" />
+		<appender-ref ref="HIBERNATE" />
+	</category>
+	<category name="org.hibernate" additivity="false">
+		<level value="info" />
+		<appender-ref ref="HIBERNATE" />
+	</category>
+<!--	
+	<category name="org.springframework.ldap" additivity="false">
+		<level value="info" />
+		<appender-ref ref="VACCINATIONDATABASE" />
+	</category>
+	<category name="org.springframework.security" additivity="false">
+		<level value="info" />
+		<appender-ref ref="VACCINATIONDATABASE" />
+	</category>
+-->	
+	<root>
+		<level value="info" />
+		<appender-ref ref="VACCINATIONDATABASE" />
+	</root>
+</log4j:configuration>
