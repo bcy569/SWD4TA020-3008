@@ -1,0 +1,11 @@
+WebTier (FrontEnd) <--> BusinessTier (BackEnd) <--> DataTier (Persistence layer like DataBase)
+
+MVC
+Model (Persistence DataModel)
+View (Server Side Rendering Template engine for FrontEnd)
+Controller (BackEnd Server Side Rendering)
+
+THIS IS "DAO"
+Data Access Object (DAO) layer even though actually JPA generates the actual DAO
+* is between MVC: Controller and MVC: Model
+

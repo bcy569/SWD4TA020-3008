@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+    <title>Add</title>
+</head>
+<body>
+<h1>Lisää</h1>
+<div>
+    <form th:object="${order}" th:action="@{thymeleafadd}" action="#" method="post">
+        <label for="author"><b>Vastuuhenkilö</b></label>
+        <input type="text" id="author" th:field="*{responsiblePerson}" />
+
+        <div style="clear: both; display: block; height: 10px;"></div>
+
+        <label for="title"><b>Sairaanhoitopiiri</b></label>
+        <input type="text" id="title" th:field="*{healthCareDistrict}" />
+
+        <div style="clear: both; display: block; height: 10px;"></div>
+
+        <input type="submit" value="Tallenna"></input>
+    </form>
+</div>
+</body>
+</html>

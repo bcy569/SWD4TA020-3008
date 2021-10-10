@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+    <title>Spring Framework for Java with Thymeleaf</title>
+</head>
+<body>
+<p>
+<h1>Tilaukset</h1>
+
+<form th:action"@{/logout}" method="post">
+<input type="submit" value="Kirjaudu ulos" class="btn btn-outline-info"/></input>
+</form>
+
+<!-- Maven Dependency: thymeleaf-extras-springsecurity5 -->
+<!-- hasRole -->
+<div sec:authorize="hasAuthority('ROLE_ADMIN')">
+    <a href="/thymeleafaddorder"><button type="button" class="btn btn-success">Lisää rivi tietokantaan</button></a>
+</div>
+
+
+<div th:if="${orders} != null">
+    <table class="table table-striped">
+        <tbody>
+        <tr>
+            <td><b>Vastuuhenkilö</b></td>
+            <td><b>Sairaanhoitopiiri</b></td>
+
+            <td sec:authorize="hasAuthority('ROLE_ADMIN')"></td>
+            <td sec:authorize="hasAuthority('ROLE_ADMIN')"></td>
+
+        </tr>
+        <tr th:each="order : ${orders}">
+            <td th:text="${order.responsiblePerson}"></td>
+            <td th:text="${order.healthCareDistrict}"></td>
+
+
+            <!-- Maven Dependency: thymeleaf-extras-springsecurity5 -->
+                <!-- hasRole -->
+            <td sec:authorize="hasAuthority('ROLE_ADMIN')">
+                <a th:href="@{/thymeleafdelete/{id}(id=${order.id})}">
+                    <button type="button" class="btn btn-danger">Poista</button>
+                </a>
+            </td>
+            <td sec:authorize="hasAuthority('ROLE_ADMIN')">
+                <a th:href="@{/thymeleafedit/{id}(id=${order.id})}">
+                    <button type="button" class="btn btn-warning">Muokkaa</button>
+                </a>
+            </td>
+
+         </tr>
+        </tbody>
+    </table>
+</div>
+
+</p>
+
+</body>
+</html>

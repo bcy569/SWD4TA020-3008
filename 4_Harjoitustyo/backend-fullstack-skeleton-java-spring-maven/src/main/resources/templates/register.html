@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+    <title>Rekisteröitymissivu</title>
+  </head>
+<body>
+
+<div class="container">
+
+    <h1>Luo käyttäjätunnus</h1>
+  <form th:object="${registerform}" th:action="@{/saveuser}" method="post">
+    <div><label> Käyttäjätunnus: <input type="text" th:field="*{username}" class="form-control"/> </label>
+      <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Käyttäjänimi on jo varattu</p></div>
+
+    <div><label> Salasana: <input type="password" th:field="*{password}" class="form-control"/></label>
+      <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Salasana ei täytä minimivaatimuksia</p>
+    </div>
+    <div>
+      <label> Salasana uudestaan: <input type="password" th:field="*{passwordCheck}" class="form-control"/></label>
+      <p th:if="${#fields.hasErrors('passwordCheck')}" th:errors="*{passwordCheck}">Salasana ei vastaa aiemmin kirjoitettua</p>
+    </div>
+    <div><input type="submit" value="Rekisteröidy" class="btn btn-primary"/></div>
+  </form>
+
+</div>
+</body>
+</html>
