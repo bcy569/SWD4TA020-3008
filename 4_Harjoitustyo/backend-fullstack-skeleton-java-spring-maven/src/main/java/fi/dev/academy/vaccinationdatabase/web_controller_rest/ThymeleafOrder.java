@@ -66,13 +66,16 @@ public class ThymeleafOrder {
     public String editOrderById(@PathVariable("id") Long id, Model model) {
 
         Optional<fi.dev.academy.vaccinationdatabase.domain_class_pojo_orm.order.Order> optionalOrder = orderRepository.findById(id);
-
-        final String[] sourceBottle = new String[1];
-        optionalOrder.map(obj ->
-                sourceBottle[0] = obj.getOrderedAmpuleBottleId());
-
         model.addAttribute("order", optionalOrder);
-        model.addAttribute("releatedVaccinations", vaccinationRepository.findBySourceBottle(sourceBottle[0]));
+/*        final String[] sourceBottle = new String[1];
+        optionalOrder.map(obj ->
+                sourceBottle[0] = obj.getOrderedAmpuleBottleId());*/
+//        model.addAttribute("releatedVaccinations", vaccinationRepository.findBySourceBottle(sourceBottle[0]));
+
+
+        //FIXME
+        Vaccination vaccination = new Vaccination();
+        model.addAttribute("vaccination", vaccination);
 
         return "edit";
 

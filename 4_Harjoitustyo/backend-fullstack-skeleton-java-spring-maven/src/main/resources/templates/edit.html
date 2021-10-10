@@ -28,30 +28,36 @@
         <label for="title"><b>Sairaanhoitopiiri</b></label>
         <input id="title" th:field="*{healthCareDistrict}" type="text"/>
 
-      <div th:if="${releatedVaccinations} != null">
-        <table class="table table-striped">
-          <tbody>
-          <tr>
-            <td><b>Rokotuskerran ID</b></td>
-            <td><b>pvm</b></td>
-            <td><b>Rokotetun sukupuoli</b></td>
-          </tr>
-          <tr th:each="vaccination : ${releatedVaccinations}">
-            <td th:text="${vaccination.vaccinationId}"></td>
-            <td th:text="${vaccination.vaccinationDate}"></td>
-            <td th:text="${vaccination.gender}"></td>
-          </tr>
-          </tbody>
-        </table>
-      </div>
+        <!-- FIXME -->
+        <!-- th:object="${vaccination} -->
+        <label for="vaccinationList">Rokotuskerrat</label>
+        <select class="form-control" id="vaccinationList" th:field="*{vaccinations}">
+<!--            <option th:each="vaccination: ${vaccinations}"
+                    th:text="${vaccination.vaccinationDate}"
+                    th:value="${vaccination.vaccinationId}">
+            </option>-->
+        </select>
 
-      <!--      <label for="VaccinationList">Rokotuskerrat</label>
-            <select class="form-control" id="VaccinationList" th:field="*{vaccinations}">
-                <option th:each="vaccination: ${vaccinations}"
-                        th:text="${vaccination.vaccinationDate}"
-                        th:value="${vaccination.vaccinationId}">
-                </option>
-            </select>-->
+
+
+
+
+        <!--      <div th:if="${releatedVaccinations} != null">
+                <table class="table table-striped">
+                  <tbody>
+                  <tr>
+                    <td><b>Rokotuskerran ID</b></td>
+                    <td><b>pvm</b></td>
+                    <td><b>Rokotetun sukupuoli</b></td>
+                  </tr>
+                  <tr th:each="vaccination : ${releatedVaccinations}">
+                    <td th:text="${vaccination.vaccinationId}"></td>
+                    <td th:text="${vaccination.vaccinationDate}"></td>
+                    <td th:text="${vaccination.gender}"></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>-->
 
 
         <div style="clear: both; display: block; height: 10px;"></div>
