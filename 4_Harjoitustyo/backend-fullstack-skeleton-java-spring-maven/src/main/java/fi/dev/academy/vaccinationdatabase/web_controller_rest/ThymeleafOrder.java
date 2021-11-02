@@ -65,8 +65,8 @@ public class ThymeleafOrder {
     @GetMapping("thymeleafedit/{id}")
     public String editOrderById(@PathVariable("id") Long id, Model model) {
 
-        Optional<fi.dev.academy.vaccinationdatabase.domain_class_pojo_orm.order.Order> optionalOrder = orderRepository.findById(id);
-        model.addAttribute("order", optionalOrder);
+        orderRepository.findById(id).ifPresent(o -> model.addAttribute("order", o));
+        model.addAttribute("vaccinations", vaccinationRepository.findAll());
 /*        final String[] sourceBottle = new String[1];
         optionalOrder.map(obj ->
                 sourceBottle[0] = obj.getOrderedAmpuleBottleId());*/
@@ -86,7 +86,7 @@ public class ThymeleafOrder {
     }
 
 
-    @PostMapping("thymeleafupdate")
+    @PutMapping("thymeleafupdate")
     public String putUpdate(@ModelAttribute fi.dev.academy.vaccinationdatabase.domain_class_pojo_orm.order.Order order) {
 
         log.info("TO BE updated order is = " + order);

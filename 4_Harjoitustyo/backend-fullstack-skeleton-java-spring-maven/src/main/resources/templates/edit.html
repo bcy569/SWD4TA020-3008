@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
     <title>Server Programming</title>
 </head>
 <body>
@@ -14,7 +14,6 @@
         <input id="version" th:field="*{version}" type="hidden"/>
         <input id="status" th:field="*{status}" type="hidden"/>
         <input id="orderedAmpuleBottleId" th:field="*{orderedAmpuleBottleId}" type="hidden"/>
-        <input id="vaccine" th:field="*{vaccine}" type="hidden"/>
         <input id="orderNumber" th:field="*{orderNumber}" type="hidden"/>
         <input id="injections" th:field="*{injections}" type="hidden"/>
         <input id="arrived" th:field="*{arrived}" type="hidden"/>
@@ -28,37 +27,22 @@
         <label for="title"><b>Sairaanhoitopiiri</b></label>
         <input id="title" th:field="*{healthCareDistrict}" type="text"/>
 
-        <!-- FIXME -->
-        <!-- th:object="${vaccination} -->
-        <label for="vaccinationList">Rokotuskerrat</label>
-        <select class="form-control" id="vaccinationList" th:field="*{vaccinations}">
-<!--            <option th:each="vaccination: ${vaccinations}"
-                    th:text="${vaccination.vaccinationDate}"
-                    th:value="${vaccination.vaccinationId}">
-            </option>-->
+        <div style="clear: both; display: block; height: 10px;"></div>
+
+        <label for="vaccine"><b>Rokotteen nimi</b></label>
+        <input id="vaccine" th:field="*{vaccine}" type="text"/>
+
+        <label for="vaccinationlist">Ampullista rokotettu ajankohtina</label>
+        <select id="vaccinationlist" th:field="*{vaccinations}" class="form-control">
+
+            <option th:each="vaccination: ${vaccinations}"
+                th:if="${order.orderedAmpuleBottleId} == ${vaccination.sourceBottle}"
+                th:value="${vaccination.id}"
+                th:text="${vaccination.vaccinationDate}">
+            </option>
+
+
         </select>
-
-
-
-
-
-        <!--      <div th:if="${releatedVaccinations} != null">
-                <table class="table table-striped">
-                  <tbody>
-                  <tr>
-                    <td><b>Rokotuskerran ID</b></td>
-                    <td><b>pvm</b></td>
-                    <td><b>Rokotetun sukupuoli</b></td>
-                  </tr>
-                  <tr th:each="vaccination : ${releatedVaccinations}">
-                    <td th:text="${vaccination.vaccinationId}"></td>
-                    <td th:text="${vaccination.vaccinationDate}"></td>
-                    <td th:text="${vaccination.gender}"></td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>-->
-
 
         <div style="clear: both; display: block; height: 10px;"></div>
 

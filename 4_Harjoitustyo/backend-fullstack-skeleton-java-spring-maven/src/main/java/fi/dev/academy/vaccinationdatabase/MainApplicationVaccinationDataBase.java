@@ -28,10 +28,11 @@ public class MainApplicationVaccinationDataBase {
         public CommandLineRunner loadDataBase(IPersonDAO userRepository) {
         return (args) -> {
 
-setUpDB.initDB();
+//setUpDB.initDB();
 
             // TODO Enforce Swagger it self to ask API Key
 
+/*
             Person admin = new Person("admin", "$2a$10$0MMwY.IQqpsVc1jC8u7IJ.2rT8b0Cd3b3sfIBGV2zfgnPGtT4r0.C", "ROLE_ADMIN");
             admin.setRole("ROLE_ADMIN");
 
@@ -40,6 +41,7 @@ setUpDB.initDB();
 
             userRepository.save(admin);
             userRepository.save(user);
+*/
 
         };
     }

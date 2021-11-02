@@ -7,7 +7,7 @@
 </head>
 <body>
 <p>
-<h1>Tilaukset</h1>
+<h1>Eri merkkisten rokotteiden ampullikohtaiset tiedot tilauksista</h1>
 
 <form th:action"@{/logout}" method="post">
 <input type="submit" value="Kirjaudu ulos" class="btn btn-outline-info"/></input>
@@ -24,6 +24,7 @@
     <table class="table table-striped">
         <tbody>
         <tr>
+            <td><b>Rokotempullin yksilöivä tunniste</b></td>
             <td><b>Vastuuhenkilö</b></td>
             <td><b>Sairaanhoitopiiri</b></td>
 
@@ -32,6 +33,7 @@
 
         </tr>
         <tr th:each="order : ${orders}">
+            <td th:text="${order.orderedAmpuleBottleId}"></td>
             <td th:text="${order.responsiblePerson}"></td>
             <td th:text="${order.healthCareDistrict}"></td>
 
