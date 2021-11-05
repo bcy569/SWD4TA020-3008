@@ -34,14 +34,20 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+
+
+
+
         <!-- application properties: 'spring.data.rest.base-path=/my_api_name' -->
-<!--
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
         </dependency>
--->
         <!--spring-boot-starter-data-rest with @JsonIgnoreProperties messes up Swaggers @OneToMany prettified display -->
+
+
+
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -110,7 +116,25 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
-        
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <!--        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>-->
+
     </dependencies>
 
     <!-- https://springfox.github.io/springfox/docs/current/#maven -->
